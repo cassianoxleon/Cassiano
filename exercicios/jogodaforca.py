@@ -1,23 +1,9 @@
 palavra_compl = "MANTEIGA"
 letras_correta = {
-    0: "M",
-    1: "A",
-    2: "N",
-    3: "T",
-    4: "E",
-    5: "I",
-    6: "G",
-    7: "A",
+    i: letra for i, letra in enumerate(palavra_compl)
 }
 letras_vazias = {
-    0: "_",
-    1: "_",
-    2: "_",
-    3: "_",
-    4: "_",
-    5: "_",
-    6: "_",
-    7: "_",
+    i: "_" for i, letra in enumerate(palavra_compl)
 }
 letras_usadas = []
 
@@ -76,18 +62,15 @@ def adicionar_membros(adicionado: int) -> int:
         
 def verificar_letra(letr: str) -> str:
     if letr in letras_usadas:
-        print("")
-        print("Essa letra já foi usada KKKKKK")
+        print("\nEssa letra já foi usada KKKKKK")
         return "usado"
     
-    for i in range(8):
+    for i, letra in enumerate(palavra_compl):
         if letras_correta[i] == letr:
-            print("")
-            print("Acertou uma das palavras!")
+            print("\nAcertou uma das palavras!")
                 
             return "acertou"
-    print("")
-    print(f"ERROUKKKKKKK ({letr})")
+    print(f"\nERROUKKKKKKK ({letr})")
         
     return "errou"
 
@@ -96,11 +79,11 @@ def verificar_jogo(members: int) -> bool:
         return True
     return False
         
-print("--- Jogo Da Forca! ---")
+print("\n--- Jogo Da Forca! ---")
 print("Adivinhe qual é a palavra e ganhe nada.")
 print("DICA: Na maioria das vezes, é adicionado em um pão.")
 
-while letras_restan != 8:
+while letras_restan != len(palavra_compl):
     verificacao = verificar_jogo(membros_adic)
     if verificacao == True:
         mostrar_membros(membros["Part1"], membros["Part2"],  membros["Part3"])
@@ -118,14 +101,13 @@ while letras_restan != 8:
     if le == "acertou":
         letras_usadas.append(letra_inserida)
         
-        for i in range(8):
+        for i, letra in enumerate(palavra_compl):
             if letras_correta[i] == letra_inserida:
                 letras_vazias[i] = letra_inserida
                 letras_restan += 1
         
         continue
     elif le == "usado":
-        letras_usadas.append(letra_inserida)
         continue
     elif le == "errou":
         letras_usadas.append(letra_inserida)
@@ -136,5 +118,5 @@ while letras_restan != 8:
     
 if not membros_adic == 6:
     print("VOCÊ VENCEU!!!")
-    print(f"A palavra era: {palavra_compl}")
+    print(f"A palavra era: {palavra_compl}\n")
     
