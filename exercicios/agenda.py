@@ -29,7 +29,7 @@ def verif_data(numDia: int, numMes: int, numAno: int, numHora: int, numMin: int)
         print("\n ⚠️ Hora inválida!")
         return True
     if numMin >= 60 or numMin <= -1:
-        print("\n ⚠️ Minutos inválida!")
+        print("\n ⚠️ Minutos inválidos!")
         return True
     return False
 
