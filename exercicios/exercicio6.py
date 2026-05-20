@@ -22,7 +22,7 @@ def mostrar_cadas(lista_cadas: list) -> bool:
         print("\n-------------------------------")
         print("Usuários Cadastradas:")
         for nome, senha in lista_cadas:
-            print(f"Usuário: {nome}\nSenha: {senha}\n")
+            print(f"Usuário: {nome}\nSenha: {senha}\n") 
         print("-------------------------------\n")
     return False
 
